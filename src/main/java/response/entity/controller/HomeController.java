@@ -26,6 +26,9 @@ public class HomeController {
         return "home";
     }
 
+    //Per generare la password encriptata a partire dalla pass in chiaro
+    //String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
+
     @PostMapping("/login")
     public String login(@Valid LoginForm loginForm, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()) {
