@@ -1,10 +1,10 @@
 package response.entity.model.form;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
-import response.entity.model.Azienda;
+import org.hibernate.validator.constraints.NotEmpty;
 import response.entity.model.Ruolo;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -27,10 +27,10 @@ public class RegistrationDipendenteForm {
     @Pattern(regexp = "^(\\+39\\s?)?\\d{9,11}$" , message = "numero telefono non valido")
     private String numero_telefono;
 
-    @NotNull
+    @NotEmpty
     private String nome_azienda;
 
-    @NotNull
-    private Ruolo nome_ruolo;
+    @NotEmpty
+    private String nome_ruolo;
 
 }

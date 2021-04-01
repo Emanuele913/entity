@@ -1,13 +1,15 @@
 package response.entity.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import response.entity.repository.AccountDipendenteRepository;
 
 @Service
 public class AccountDipendenteService {
 
-    private AccountDipendenteRepository accountDipendenteRepository;
+    private final AccountDipendenteRepository accountDipendenteRepository;
 
+    @Autowired
     private AccountDipendenteService(AccountDipendenteRepository accountDipendenteRepository) {
         this.accountDipendenteRepository = accountDipendenteRepository;
     }

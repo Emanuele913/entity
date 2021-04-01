@@ -2,6 +2,7 @@ package response.entity.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import response.entity.model.Azienda;
 import response.entity.model.Ruolo;
 import response.entity.repository.RuoloRepository;
 
@@ -19,5 +20,9 @@ public class RuoloService {
 
     public List<Ruolo> getAllRuoli(){
         return ruoloRepository.findAll();
+    }
+
+    public Ruolo findRuolo(String name){
+        return ruoloRepository.findRuolo(name);
     }
 }

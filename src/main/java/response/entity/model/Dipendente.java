@@ -61,6 +61,5 @@ public class Dipendente {
         this.codice_fiscale = registrationDipendenteForm.getCodice_fiscale();
         this.email = registrationDipendenteForm.getEmail();
         this.numero_telefono = registrationDipendenteForm.getNumero_telefono();
-        this.ruolo = registrationDipendenteForm.getNome_ruolo();
     }
 }

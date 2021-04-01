@@ -1,5 +1,6 @@
 package response.entity.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,8 @@ import response.entity.service.RuoloService;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/registration/dipendente")
+@RequestMapping("/registration")
+@Slf4j
 public class RegistrationDipendenteController {
 
     private final DipendenteService dipendenteService;
@@ -35,18 +37,21 @@ public class RegistrationDipendenteController {
         this.accountDipendenteService = accountDipendenteService;
     }
 
-    @GetMapping("/index")
+    @GetMapping("/indexDependent")
     public String showForm(RegistrationDipendenteForm registrationDipendenteForm,Model model) {
         model.addAttribute("listAziende", aziendaService.getAllAziende());
         model.addAttribute("listRuoli",ruoloService.getAllRuoli());
         return "registration_dipendente";
     }
 
-    @PostMapping("/index/registrazioneDipendente")
+    @PostMapping("/regDependent")
     public String checkPersonInfo(@Valid RegistrationDipendenteForm registrationDipendenteForm,
-                                  BindingResult bindingResult) {
+                                  BindingResult bindingResult , Model model) {
+        model.addAttribute("listAziende", aziendaService.getAllAziende());
+        model.addAttribute("listRuoli",ruoloService.getAllRuoli());
 
         if (bindingResult.hasErrors()) {
+            log.error("{}",bindingResult);
             return "registration_dipendente";
         }
 
@@ -54,6 +59,7 @@ public class RegistrationDipendenteController {
 
             Dipendente dipendente = new Dipendente(registrationDipendenteForm);
             dipendente.setAzienda(aziendaService.findAzienda(registrationDipendenteForm.getNome_azienda()));
+            dipendente.setRuolo(ruoloService.findRuolo(registrationDipendenteForm.getNome_ruolo()));
             dipendenteService.insertDipendente(dipendente);
         }
 

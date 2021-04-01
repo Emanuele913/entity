@@ -13,6 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 public class EntityApplication {
 
 	public static void main(String[] args) {
+		String hashed = BCrypt.hashpw("asdxdlol", BCrypt.gensalt(12));
+		System.out.println(hashed);
 		SpringApplication.run(EntityApplication.class, args);
 	}
 
