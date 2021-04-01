@@ -13,12 +13,14 @@ import java.util.List;
 public class Ruolo {
 
     @Id
+    @Column(name = "id_ruolo")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id_ruolo;
+
     @Column(name = "nome_ruolo")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String nome_ruolo;
 
     @JsonBackReference
     @OneToMany(mappedBy = "ruolo", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
     private List<Dipendente> dipendenti;
 }

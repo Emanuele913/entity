@@ -1,5 +1,6 @@
 package response.entity.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class AccountDipendente {
     @Column(name = "data_registrazione")
     private Date data_registrazione;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "accountDipendente", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Dipendente dipendente;

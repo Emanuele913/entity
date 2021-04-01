@@ -1,14 +1,14 @@
 package response.entity.model.form;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Data
 public class LoginForm {
 
-    @NotNull
+    @NotEmpty
     private String username;
 
-    @NotNull
+    @NotEmpty
     private String password;
 }

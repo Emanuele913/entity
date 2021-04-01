@@ -52,7 +52,9 @@
                placeholder="Numero Telefonico" type="text" th:field="*{numero_telefono}"/>
         <p th:if="${#fields.hasErrors('numero_telefono')}" class="alert alert-danger"
            th:errors="*{numero_telefono}"></p>
-        <div>
+
+
+        <!--<div> //CODICE PER TENDINA CON LISTE PRESE DA DB
             <h1>Seleziona Aziende</h1>
             <select th:field="*{nome_azienda}">
                 <div>
@@ -76,7 +78,7 @@
             </select>
             <p th:if="${#fields.hasErrors('nome_ruolo')}" class="alert alert-danger"
                th:errors="*{nome_ruolo}"></p>
-        </div>
+        </div>-->
 
         <button class="btn btn-danger" value="submit"> CLICK</button>
 
@@ -85,41 +87,6 @@
 
 
 </form>
-
-
-<!--<form id="registrationAccountForm" th:object="${registrationAccountForm}"
-      th:action="@{/index/registrazioneAccount}" method="post">
-
-    <hr>
-    <div class="d-flex flex-column align-items-center justify-content-center">
-
-        <input class="form-control w-50 m-3"
-               placeholder="Username" type="text" th:field="*{username}"/>
-        <p th:if="${#fields.hasErrors('username')}" class="alert alert-danger"
-           th:errors="*{username}">Incorrect LP</p>
-
-        <input class="form-control w-50 m-3"
-               placeholder="Password" type="password" th:field="*{password}"/>
-        <p th:if="${#fields.hasErrors('password')}" class="alert alert-danger"
-           th:errors="*{password}">Incorrect LP</p>
-
-        <input class="form-control w-50 m-3"
-               placeholder="Conferma Password" type="password" th:field="*{conferma_password}"/>
-        <p th:if="${#fields.hasErrors('conferma_password')}" class="alert alert-danger"
-           th:errors="*{conferma_password}">Incorrect LP</p>
-
-        <input class="form-control w-50 m-3"
-               id="email_account" placeholder="Email" type="email" th:field="*{email}"/>
-        <p th:if="${#fields.hasErrors('email')}" class="alert alert-danger"
-           th:errors="*{email}">Incorrect LP</p>
-
-        <input class="form-control w-50 m-3"
-               placeholder="" type="date" th:field="*{data_registrazione}"/>
-        <p th:if="${#fields.hasErrors('data_registrazione')}" class="alert alert-danger"
-           th:errors="*{data_registrazione}">Incorrect LP</p>
-    </div>
-    <button type="submit"> CLICK</button>
-</form>-->
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

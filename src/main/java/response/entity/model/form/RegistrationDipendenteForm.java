@@ -27,10 +27,4 @@ public class RegistrationDipendenteForm {
     @Pattern(regexp = "^(\\+39\\s?)?\\d{9,11}$" , message = "numero telefono non valido")
     private String numero_telefono;
 
-    @NotEmpty
-    private String nome_azienda;
-
-    @NotEmpty
-    private String nome_ruolo;
-
 }

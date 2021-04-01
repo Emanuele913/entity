@@ -4,6 +4,7 @@ package response.entity.model.form;
 import lombok.Data;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Size;
 
@@ -23,10 +24,12 @@ public class RegistrationAccountForm {
     private String conferma_password;
 
     @NotBlank
-    @Email
-    private String email;
-
-    @NotBlank
     private String data_registrazione;
+
+
+
+
+
+
 
 }

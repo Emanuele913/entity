@@ -16,40 +16,36 @@
 
 <div class="welcome-container">
 
-    <div class="mb-3 imagewelcome">
-    </div>
+    <div class="mb-3 imagewelcome"></div>
+
     <div class="limiter">
         <div class="container-fluid">
 
             <div class="center">
 
                 <div class="col-12 text-center mb-2 text-white">
-                    <h2>Salve per connertersi ai nostri servizi bisogna inserire le credenziali</h2>
+                    <h2>Inserire le credenziali per loggare</h2>
                 </div>
 
-
-                <form th:action="@{/login}" method="post">
+                <form id="loginForm" th:object="${loginForm}" th:action="@{/login}" method="post">
                     <hr>
                     <div class="d-flex flex-column align-items-center justify-content-center">
-                        <input name="username" class="form-control w-50 m-3"
-                               placeholder="Username" type="text"/>
 
-                        <input name="password" class="form-control w-50 m-3"
-                               placeholder="Password" type="password"/>
+
+                        <input class="form-control w-50 m-3"
+                               placeholder="Username" type="text" th:field="*{username}"/>
+                        <p th:if="${#fields.hasErrors('username')}" class="alert alert-danger"
+                           th:errors="*{username}"></p>
+
+                        <input class="form-control w-50 m-3"
+                               placeholder="Password" type="password" th:field="*{password}"/>
+                        <p th:if="${#fields.hasErrors('password')}" class="alert alert-danger"
+                           th:errors="*{password}"></p>
+
                     </div>
 
-                    <div th:if="${param.error}">
-                        <div class="col-12 text-center mb-5 text-white">
-                            <h3>Nome utente o password errati!</h3>
-                        </div>
-                    </div>
-
-
-                    <hr>
                     <div class="center">
-
                         <button type="submit" class="btn btn-danger btn-lg btn-block m-2">Entra nell'APP</button>
-
                     </div>
 
                 </form>

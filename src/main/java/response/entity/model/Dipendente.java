@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Dipendente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_dipendente")
     private int id_dipendente;
 
@@ -28,10 +28,10 @@ public class Dipendente {
     @Column(name = "cognome")
     private String cognome;
 
-    @Column(name = "codice_fiscale")
+    @Column(name = "codice_fiscale", unique = true)
     private String codice_fiscale;
 
-    @Column(name = "email")
+    @Column(name = "email" , unique = true)
     private String email;
 
     @Column(name = "numero_telefono")
