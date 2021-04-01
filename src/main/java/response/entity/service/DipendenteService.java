@@ -29,5 +29,9 @@ public class DipendenteService {
         return dipendenteRepository.getAllUsers();
     }
 
+    public void insertDipendente(Dipendente dipendente){
+
+        dipendenteRepository.save(dipendente);
+    }
 
 }

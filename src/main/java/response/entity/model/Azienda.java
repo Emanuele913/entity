@@ -1,5 +1,7 @@
 package response.entity.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -24,6 +26,7 @@ public class Azienda {
     @Column(name = "numero_dipendenti")
     private int numero_dipendenti;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "azienda",cascade = {CascadeType.ALL},fetch = FetchType.LAZY)
     private List<Dipendente> dipendenti;
 
