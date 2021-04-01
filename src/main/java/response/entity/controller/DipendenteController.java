@@ -22,12 +22,6 @@ public class DipendenteController {
         this.service = dipendenteService;
     }
 
-    @GetMapping("/home")
-    public String showForm(RegistrationDipendenteForm registrationDipendenteForm, RegistrationAccountForm registrationAccountForm) {
-
-        return "registration_dipendente";
-    }
-
     @GetMapping("/allUsers")
     public ResponseEntity<List<Dipendente>> getAllUsers() {
         return new ResponseEntity<>(service.getAllUsers(), HttpStatus.OK);
