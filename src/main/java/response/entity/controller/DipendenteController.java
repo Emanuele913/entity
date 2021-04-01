@@ -25,7 +25,7 @@ public class DipendenteController {
     @GetMapping("/home")
     public String showForm(RegistrationDipendenteForm registrationDipendenteForm, RegistrationAccountForm registrationAccountForm) {
 
-        return "home";
+        return "registration_dipendente";
     }
 
     @GetMapping("/allUsers")
