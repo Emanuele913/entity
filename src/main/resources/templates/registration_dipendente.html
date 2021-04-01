@@ -51,7 +51,7 @@
         <h1>Seleziona Aziende</h1>
         <select th:field="*{nome_azienda}">
             <div>
-                <option value="" selected disabled>Seleziona un Azienda</option>
+                <option value="" hidden >Seleziona un Azienda</option>
                 <option th:value="${azienda.nome_azienda}" value="" th:each="azienda: ${listAziende}" ><span
                         th:text="${azienda.nome_azienda}"></span></option>
             </div>
@@ -60,7 +60,7 @@
         <h1>Seleziona Ruolo</h1>
         <select th:field="*{nome_ruolo}">
             <div>
-                <option value="" disabled selected>Seleziona un Ruolo</option>
+                <option value=""  hidden >Seleziona un Ruolo</option>
                 <option th:value="${ruolo.nome_ruolo}" value="" th:each="ruolo: ${listRuoli}" ><span
                         th:text="${ruolo.nome_ruolo}"></span></option>
             </div>
