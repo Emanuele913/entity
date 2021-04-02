@@ -1,11 +1,7 @@
 package response.entity.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import com.fasterxml.jackson.annotation.*;
+import lombok.*;
 import response.entity.model.form.RegistrationDipendenteForm;
 
 import javax.persistence.*;
@@ -49,6 +45,7 @@ public class Dipendente {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "nome_ruolo", referencedColumnName = "nome_ruolo")
     private Ruolo ruolo;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_account", referencedColumnName = "id_account")

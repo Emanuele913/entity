@@ -22,7 +22,9 @@
       th:action="@{/registration/regDependent}" method="post">
 
     <hr>
+
     <div class="d-flex flex-column align-items-center justify-content-center">
+        <th:block th:if="${isPresent}"><p class="alert alert-danger">Utente già presente</p></th:block>
         <h5>Nome :</h5>
         <input class="form-control w-50 m-3"
                placeholder="Nome" type="text" th:field="*{nome}"/>

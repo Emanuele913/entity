@@ -15,7 +15,8 @@
     <div class="d-flex flex-column align-items-center justify-content-center">
 
         <h5>Inserisci Email e CF per identificare il tuo account</h5>
-        <p th:text="${genericError}"></p>
+        <th:block th:if="${isNull}"><p class="alert alert-danger">Errore i dati inseriti corrispondono a più persone</p></th:block>
+        <th:block th:if="${isRegistered}"><p class="alert alert-danger">Questo dipendente ha già un account registrato</p></th:block>
         <input class="form-control w-50 m-3"
                placeholder="Codice Fiscale" type="text" th:field="*{cf_conferma}"/>
         <p th:if="${#fields.hasErrors('cf_conferma')}" class="alert alert-danger"
@@ -51,11 +52,6 @@
                placeholder="Conferma Password" type="password" th:field="*{conferma_password}"/>
         <p th:if="${#fields.hasErrors('conferma_password')}" class="alert alert-danger"
            th:errors="*{conferma_password}"></p>
-
-        <input class="form-control w-50 m-3"
-               placeholder="" type="date" th:field="*{data_registrazione}"/>
-        <p th:if="${#fields.hasErrors('data_registrazione')}" class="alert alert-danger"
-           th:errors="*{data_registrazione}"></p>
 
         <button class="btn btn-danger" value="submit"> CLICK</button>
     </div>
