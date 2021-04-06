@@ -27,7 +27,8 @@ a {
     transition: all .4s;
     -webkit-transition: all .4s;
     -o-transition: all .4s;
-    -moz-transition: all .4s
+    -moz-transition: all .4s;
+    color: white;
 }
 
 a:focus {
@@ -36,7 +37,9 @@ a:focus {
 
 a:hover {
     text-decoration: none
+
 }
+
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0
