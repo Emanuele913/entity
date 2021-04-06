@@ -25,6 +25,7 @@
 
     <div class="d-flex flex-column align-items-center justify-content-center">
         <th:block th:if="${isPresent}"><p class="alert alert-danger">Utente già presente</p></th:block>
+        <th:block th:if="${registrationComplete}"><p class="alert alert-success">Utente inserito con successo</p></th:block>
         <h5>Nome :</h5>
         <input class="form-control w-50 m-3"
                placeholder="Nome" type="text" th:field="*{nome}"/>

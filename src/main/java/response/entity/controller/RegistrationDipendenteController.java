@@ -48,9 +48,13 @@ public class RegistrationDipendenteController {
                 model.addAttribute("isPresent",true);
                 return "registration_dipendente";
             }
+
+            model.addAttribute("registrationComplete",true);
+            RegistrationDipendenteForm registrationDipendenteReset = new RegistrationDipendenteForm();
+            model.addAttribute("registrationDipendenteForm",registrationDipendenteReset);
         }
 
-        return "success";
+        return "registration_dipendente";
     }
 
 }

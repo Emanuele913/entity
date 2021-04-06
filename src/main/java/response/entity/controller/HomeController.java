@@ -45,7 +45,7 @@ public class HomeController {
                 BCrypt.checkpw(loginForm.getPassword(), accountDipendenteService.getPasswordbyUsername(loginForm.getUsername()))) {
             return "registration_account";
         }
-            model.addAttribute("error", "Username o Password errati");
+        model.addAttribute("error", "Username o Password errati");
 
         return "home";
 

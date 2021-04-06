@@ -15,48 +15,54 @@
     <div class="d-flex flex-column align-items-center justify-content-center">
 
         <h5>Inserisci Email e CF per identificare il tuo account</h5>
-        <th:block th:if="${isNull}"><p class="alert alert-danger">Errore i dati inseriti corrispondono a più persone</p></th:block>
-        <th:block th:if="${isRegistered}"><p class="alert alert-danger">Questo dipendente ha già un account registrato</p></th:block>
-        <input class="form-control w-50 m-3"
+        <th:block th:if="${isNull}"><p class="alert alert-danger">I dati inseriti non sono corretti</p></th:block>
+        <th:block th:if="${isRegistered}"><p class="alert alert-danger">Questo dipendente ha già un account
+            registrato</p></th:block>
+
+        <input th:disabled="${disableForm1}" class="form-control w-50 m-3"
                placeholder="Codice Fiscale" type="text" th:field="*{cf_conferma}"/>
         <p th:if="${#fields.hasErrors('cf_conferma')}" class="alert alert-danger"
            th:errors="*{cf_conferma}"></p>
 
-        <input class="form-control w-50 m-3"
+        <input th:disabled="${disableForm1}" class="form-control w-50 m-3"
                placeholder="Email" type="text" th:field="*{email_conferma}"/>
         <p th:if="${#fields.hasErrors('email_conferma')}" class="alert alert-danger"
            th:errors="*{email_conferma}"></p>
 
-        <button class="btn btn-danger" value="submit"> CLICK</button>
+        <button class="btn btn-danger" th:disabled="${disableForm1}" value="submit"> CLICK</button>
     </div>
 </form>
 
-<form id="registrationAccountForm" th:object="${registrationAccountForm}"
-      th:action="@{/registration/regAccount}" method="post">
-    <hr>
-    <div class="d-flex flex-column align-items-center justify-content-center">
 
-        <h5>Benvenuto <span ${nomeUtente}></span> , Compila i campi per registrare il tuo Account</h5>
+<th:block th:if="${okFirstForm}">
+    <form id="registrationAccountForm" th:object="${registrationAccountForm}"
+          th:action="@{/registration/regAccount}" method="post">
+        <hr>
 
-        <input class="form-control w-50 m-3"
-               placeholder="Username" type="text" th:field="*{username}"/>
-        <p th:if="${#fields.hasErrors('username')}" class="alert alert-danger"
-           th:errors="*{username}"></p>
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <h5>Benvenuto <span th:text="${nome_dipendente}"></span> , Compila i campi per registrare il tuo Account</h5>
+            <th:block th:if="${differentPasswords}"><p class="alert alert-danger">Le password non corrispondono</p></th:block>
 
-        <input class="form-control w-50 m-3"
-               placeholder="Password" type="password" th:field="*{password}"/>
-        <p th:if="${#fields.hasErrors('password')}" class="alert alert-danger"
-           th:errors="*{password}"></p>
+            <input th:disabled="${disableForm2}" class="form-control w-50 m-3"
+                   placeholder="Username" type="text" th:field="*{username}"/>
+            <p th:if="${#fields.hasErrors('username')}" class="alert alert-danger"
+               th:errors="*{username}"></p>
 
-        <input class="form-control w-50 m-3"
-               placeholder="Conferma Password" type="password" th:field="*{conferma_password}"/>
-        <p th:if="${#fields.hasErrors('conferma_password')}" class="alert alert-danger"
-           th:errors="*{conferma_password}"></p>
+            <input th:disabled="${disableForm2}" class="form-control w-50 m-3"
+                   placeholder="Password" type="password" th:field="*{password}"/>
+            <p th:if="${#fields.hasErrors('password')}" class="alert alert-danger"
+               th:errors="*{password}"></p>
 
-        <button class="btn btn-danger" value="submit"> CLICK</button>
-    </div>
+            <input th:disabled="${disableForm2}" class="form-control w-50 m-3"
+                   placeholder="Conferma Password" type="password" th:field="*{conferma_password}"/>
+            <p th:if="${#fields.hasErrors('conferma_password')}" class="alert alert-danger"
+               th:errors="*{conferma_password}"></p>
 
-</form>
+            <button class="btn btn-danger" th:disabled="${disableForm2}" value="submit"> CLICK</button>
+        </div>
+
+    </form>
+</th:block>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
