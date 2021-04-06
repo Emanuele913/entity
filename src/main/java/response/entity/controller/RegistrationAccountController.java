@@ -1,31 +1,24 @@
 package response.entity.controller;
 
-import com.sun.corba.se.spi.ior.ObjectKey;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.NonUniqueResultException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import response.entity.model.AccountDipendente;
 import response.entity.model.Dipendente;
+import response.entity.model.User;
 import response.entity.model.form.CheckIdentityForm;
 import response.entity.model.form.RegistrationAccountForm;
 import response.entity.service.AccountDipendenteService;
 import response.entity.service.DipendenteService;
 
-import javax.jws.WebParam;
-import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Controller
 @RequestMapping("/registration")
@@ -103,7 +96,7 @@ public class RegistrationAccountController {
             return returnErrors(checkIdentityForm, session, model);
         }
         if (!bindingResult.hasErrors()) {
-            AccountDipendente accountDipendente = new AccountDipendente(registrationAccountForm, (String) session.getAttribute("email"));
+            User accountDipendente = new User(registrationAccountForm, (String) session.getAttribute("email"));
 
             Dipendente dipendente = (Dipendente) session.getAttribute("Dipendente");
 

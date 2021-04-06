@@ -3,8 +3,7 @@ package response.entity.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
-import response.entity.model.AccountDipendente;
-import response.entity.model.Dipendente;
+import response.entity.model.User;
 import response.entity.repository.AccountDipendenteRepository;
 
 @Service
@@ -25,7 +24,7 @@ public class AccountDipendenteService {
         return accountDipendenteRepository.existsAccountDipendenteByUsername(username);
     }
 
-    public void insertAccountDipendente(AccountDipendente accountDipendente){
+    public void insertAccountDipendente(User accountDipendente){
         String hashed = BCrypt.hashpw(accountDipendente.getPassword(), BCrypt.gensalt(12));
         accountDipendente.setPassword(hashed);
         accountDipendenteRepository.save(accountDipendente);
