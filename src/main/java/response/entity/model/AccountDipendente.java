@@ -23,7 +23,7 @@ public class AccountDipendente {
     @Column(name = "id_account")
     private int id_account;
 
-    @Column(name = "username")
+    @Column(name = "username" , unique = true)
     private String username;
 
     @Column(name = "password")
@@ -32,17 +32,25 @@ public class AccountDipendente {
     @Column(name = "email", unique = true)
     private String email;
 
+    @Column(name = "roles")
+    private String roles;
+
     @Column(name = "data_registrazione")
     private LocalDate data_registrazione;
-
 
     @OneToOne(mappedBy = "accountDipendente", cascade = CascadeType.ALL)
     @ToString.Exclude
     private Dipendente dipendente;
 
-    public AccountDipendente(RegistrationAccountForm registrationAccountForm,String email) {
+    @OneToOne(mappedBy = "accountDipendente", cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_token", referencedColumnName = "id_token")
+    @ToString.Exclude
+    private Token token;
+
+    public AccountDipendente(RegistrationAccountForm registrationAccountForm, String email) {
         this.username = registrationAccountForm.getUsername();
         this.password = registrationAccountForm.getPassword();
         this.email = email;
     }
+
 }

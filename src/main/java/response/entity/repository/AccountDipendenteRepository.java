@@ -16,4 +16,6 @@ public interface AccountDipendenteRepository extends JpaRepository<AccountDipend
 
     boolean existsAccountDipendenteByUsername(String username);
 
+    AccountDipendente findAccountDipendenteByUsername(String username);
+
 }

@@ -42,6 +42,7 @@
         <div class="d-flex flex-column align-items-center justify-content-center">
             <h5>Benvenuto <span th:text="${nome_dipendente}"></span> , Compila i campi per registrare il tuo Account</h5>
             <th:block th:if="${differentPasswords}"><p class="alert alert-danger">Le password non corrispondono</p></th:block>
+            <th:block th:if="${usernameExists}"><p class="alert alert-danger">Username già utilizzato</p></th:block>
 
             <input th:disabled="${disableForm2}" class="form-control w-50 m-3"
                    placeholder="Username" type="text" th:field="*{username}"/>

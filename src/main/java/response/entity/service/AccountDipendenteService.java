@@ -31,4 +31,11 @@ public class AccountDipendenteService {
         accountDipendenteRepository.save(accountDipendente);
     }
 
+    public AccountDipendente findByUserName(String username){
+        return accountDipendenteRepository.findAccountDipendenteByUsername(username);
+    }
+
+    public void saveAccountDipendente(AccountDipendente accountDipendente){
+        accountDipendenteRepository.save(accountDipendente);
+    }
 }
