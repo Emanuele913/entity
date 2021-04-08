@@ -130,6 +130,7 @@ public class RegistrationAccountController {
             accountDipendenteService.insertAccountDipendente(accountDipendente);
 
 
+            System.out.println("ciao");
             final UserDetails userDetails = userDetailsService.loadUserByUsername(accountDipendente.getUsername());
             final String jwt = jwtUtil.generateAccessToken(userDetails);
             final String refresh_token = jwtUtil.generateRefreshToken(userDetails);
