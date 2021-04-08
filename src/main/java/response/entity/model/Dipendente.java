@@ -48,8 +48,8 @@ public class Dipendente {
 
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")
-    private User accountDipendente;
+    @JoinColumn(name = "id_account", referencedColumnName = "id_account")
+    private AccountDipendente accountDipendente;
 
 
     public Dipendente(RegistrationDipendenteForm registrationDipendenteForm){
